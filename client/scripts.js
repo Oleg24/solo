@@ -12,7 +12,8 @@ var postUrl = 'http://127.0.0.1:5000/message'
 var message = {
 	location: $('#location').val(),
 	keyword: $('#keyword').val(),
-	deals: false
+	deals: false,
+	limit: 20, 
 }
 
 $('#keyword').blur( function(){
@@ -32,16 +33,19 @@ $('#deals').on('click', function(){
 $('#submit').on('click', function(){
 	// message = JSON.stringify(message);
 	// handleSubmit(message);
-	console.log(message);
 	send(message);
 });
+var results = [];
 
 send = function(message){
     $.ajax({
       type: 'POST',
       url: postUrl,
       data: JSON.stringify(message),
-      contentType: 'application/json'
+      contentType: 'application/json',
+      success: function(response){
+      	console.log(response);
+      }
     });
   }
 
