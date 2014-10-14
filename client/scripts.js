@@ -7,7 +7,7 @@
 
 $(document).ready(function() {
 
-var postUrl = 'http://127.0.0.1:8000/message'
+var postUrl = 'http://127.0.0.1:5000/message'
 
 var message = {
 	location: $('#location').val(),
@@ -31,19 +31,18 @@ $('#deals').on('click', function(){
 
 $('#submit').on('click', function(){
 	// message = JSON.stringify(message);
-	console.log(message);
 	// handleSubmit(message);
+	console.log(message);
 	send(message);
 });
 
-send: function(message) {
+send = function(message){
     $.ajax({
       type: 'POST',
       url: postUrl,
       data: JSON.stringify(message),
       contentType: 'application/json'
     });
-    app.fetch();
   }
 
 });
