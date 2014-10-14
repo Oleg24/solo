@@ -1,0 +1,11 @@
+{
+  "name": "2014-09-solo",
+  "version": "0.0.0",
+  "description": "random yelp",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.9.0",
+    "express": "^4.9.7",
+    "express-partials": "^0.3.0"
+  }
+}
