@@ -23,10 +23,10 @@ app.post('/message',
 		
 		yelp.search({term: storage.keyword, location: storage.location, limit: storage.limit, deals_filter: storage.deals}, function(error, data) {
 		  console.log(error);
-		  var random = Math.floor(Math.random()*20+1)
-		  console.log(data);
+		  var random = Math.ceil(Math.random()*20)
+		  console.log(random);
 		  var response = data[random];
-		  res.send(data);
+		  res.send(data.businesses[random]);
 		  console.log('sent');
 		});
 		

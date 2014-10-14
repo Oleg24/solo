@@ -44,7 +44,12 @@ send = function(message){
       data: JSON.stringify(message),
       contentType: 'application/json',
       success: function(response){
-      	console.log(response);
+      	$('.results').remove();
+      	console.log(response.name+' '+response.rating+' '+response.display_phone);
+      	var cool = "<div class='results'>"+'Restaurant Name: '+response.name+'<br>'+
+      							'Stars: '+response.rating+'<br>'+
+      							'Phone Number'+response.display_phone+'<br>'+"</div>"
+      	$('body').prepend(cool);
       }
     });
   }
